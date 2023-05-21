@@ -1,0 +1,17 @@
+name: docker image ci for anonymizer
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build and publish anonymizer
+      run: |
+        docker loging --username balajeeaddanki --password {{ secrets.Anonymizer }} ghcr.io
+        docker build . --tag ghcr.io/balajeeaddanki/anonymizer:latest
+        docker push ghcr.io/balajeeaddanki/anonymizer:latest
