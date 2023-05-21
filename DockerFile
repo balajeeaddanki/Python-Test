@@ -1,0 +1,14 @@
+# Using Python runtime 3.10
+FROM python:3.10
+
+# Set the working directory of the container
+WORKDIR /src
+
+# Copy the project directory to the container
+COPY . /src/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Command to run the application
+CMD [ "python", "./anonymizer/app/main.py" ]

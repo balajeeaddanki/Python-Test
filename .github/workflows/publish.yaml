@@ -1,0 +1,12 @@
+name: ci for anonymizer
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
