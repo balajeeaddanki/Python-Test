@@ -2,11 +2,10 @@ name: docker image ci for anonymizer
 
 on:
   push:
-    branches:
-      - "main"
+    branches: [ master ]
 
 jobs:
-  build_and_publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
