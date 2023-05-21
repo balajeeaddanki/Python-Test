@@ -13,5 +13,5 @@ jobs:
       - name: Build & Push Image
         run: |
           docker login --username balajeeaddanki --password {{ secrets.APP_SECRET }} ghcr.io
-          docker build . --tag ghcr.io/balajeeaddanki/anonymizer:latest
+          docker build . -t ghcr.io/balajeeaddanki/anonymizer:latest -f DockerFile
           docker push ghcr.io/balajeeaddanki/anonymizer:latest
