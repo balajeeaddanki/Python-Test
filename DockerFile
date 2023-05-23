@@ -5,7 +5,7 @@ FROM python:3.10
 WORKDIR /src
 
 # Copy the project directory to the container
-COPY . /src/
+COPY . .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
