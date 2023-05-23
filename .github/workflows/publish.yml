@@ -9,9 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/checkout@v3
       - name: Build & Push Image
+
         run: |
           echo ${{ secrets.APP_SECRET }} | docker login ghcr.io -u "balajeeaddanki" --password-stdin
           docker build . -t ghcr.io/balajeeaddanki/anonymizer:latest -f DockerFile
           docker push ghcr.io/balajeeaddanki/anonymizer:latest
+          docker run ghcr.io/balajeeaddanki/anonymizer:latest
